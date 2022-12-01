@@ -14,9 +14,8 @@ import java.util.stream.Stream;
 @Service
 public class FooService {
 
-    private final AtomicLong al = new AtomicLong(0);
-
     public Flux<Foo> streamFoo() {
+        AtomicLong al = new AtomicLong(0);
         Flux<Long> interval = Flux.interval(Duration.ofSeconds(1));
         Flux<Foo> events =
                 Flux
